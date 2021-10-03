@@ -28,5 +28,8 @@ emailfield.send_keys(Keys.RETURN)
 passfield = get_element(By.ID, "i0118")
 passfield.send_keys(os.environ.get("password"))
 
-time.sleep(15)
+confirmbut = WebDriverWait(driver, 20).until(
+EC.element_to_be_clickable((By.ID, "idSIButton9")))
+confirmbut.click()
 
+input()
