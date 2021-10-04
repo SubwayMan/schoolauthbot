@@ -11,6 +11,10 @@ import time
 
 load_dotenv()
 
+f = open("geckodriver.log", "w")
+f.write("")
+f.close()
+
 driver = webdriver.Firefox()
 driver.get("https://outlook.office.com/")
 
@@ -25,11 +29,13 @@ emailfield = get_element(By.ID, "i0116")
 emailfield.send_keys(os.environ.get("email"))
 emailfield.send_keys(Keys.RETURN)
 
-passfield = get_element(By.ID, "i0118")
-passfield.send_keys(os.environ.get("password"))
-
 confirmbut = WebDriverWait(driver, 20).until(
 EC.element_to_be_clickable((By.ID, "idSIButton9")))
+
+passfield = get_element(By.ID, "i0118")
+passfield.send_keys(os.environ.get("password"))
 confirmbut.click()
 
-input()
+# myappbut = get_element(By.LINK_TEXT, "New message")
+
+time.sleep(20)
