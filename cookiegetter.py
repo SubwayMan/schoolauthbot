@@ -15,7 +15,8 @@ f = open("geckodriver.log", "w")
 f.write("")
 f.close()
 
-driver = webdriver.Firefox()
+fp = webdriver.FirefoxProfile(os.environ.get("firefox-profile"))
+driver = webdriver.Firefox(fp)
 driver.get("https://outlook.office.com/")
 
 def get_element(by_type, flag):
@@ -29,11 +30,12 @@ emailfield = get_element(By.ID, "i0116")
 emailfield.send_keys(os.environ.get("email"))
 emailfield.send_keys(Keys.RETURN)
 
-confirmbut = WebDriverWait(driver, 20).until(
-EC.element_to_be_clickable((By.ID, "idSIButton9")))
-
-passfield = get_element(By.ID, "i0118")
+passfield = WebDriverWait(driver, 20).until(
+    EC.visibility_of_element_located((By.ID, "i0118")))
 passfield.send_keys(os.environ.get("password"))
+
+confirmbut = WebDriverWait(driver, 20).until(
+    EC.element_to_be_clickable((By.ID, "idSIButton9")))
 confirmbut.click()
 
 # myappbut = get_element(By.LINK_TEXT, "New message")
