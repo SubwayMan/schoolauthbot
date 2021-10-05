@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.keys import Keys
 from dotenv import load_dotenv
+import re
 import os
 import time
 
@@ -57,7 +58,15 @@ except:
 
 for request in driver.requests[::-1]:
     if "suggestions?scenario=owa.react.compose" in request.url:
-        print(request.querystring)
+
+        cvid = request.body.decode("utf-8")["Cvid"]
+        os.system(f"dotenv set Cvid \'{cvid}\'")
+        args = re.split("[&=]", request.url)
+        cri = args[args.index("cri")+1]
+        cv = args[args.index("cv")+1]
+        os.system(f"dotenv set cri \'{cri}\'")
+        os.system(f"dotenv set cv \'{cv}\'")
+
         for header in request.headers:
             print(header)
 
