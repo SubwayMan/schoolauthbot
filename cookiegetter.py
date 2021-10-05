@@ -38,6 +38,31 @@ confirmbut = WebDriverWait(driver, 20).until(
     EC.element_to_be_clickable((By.ID, "idSIButton9")))
 confirmbut.click()
 
-# myappbut = get_element(By.LINK_TEXT, "New message")
+sendbut = WebDriverWait(driver, 20).until(
+    EC.element_to_be_clickable((By.ID, "id__9")))
+time.sleep(1.5)
+sendbut.click()
+
+field = WebDriverWait(driver, 20).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, "input.ms-BasePicker-input")))
+
+field.send_keys("100")
+
+try:
+    dirsearch = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.ID, "sug-footer-item1")))
+    dirsearch.click()
+except:
+    pass
+
+for request in driver.requests[::-1]:
+    if "suggestions?scenario=owa.react.compose" in request.url:
+        print(request.querystring)
+        for header in request.headers:
+            print(header)
+
+            if header in ["client-request-id", "authorization", "x-owa-canary", "x-anchormailbox", "client-session-id", "x-owa-sessionid", "ms-cv"]:
+                os.system(f"dotenv set {header} \'{request.headers[header]}\'")
+        break
 
 time.sleep(20)
