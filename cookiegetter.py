@@ -17,6 +17,12 @@ f = open("geckodriver.log", "w")
 f.write("")
 f.close()
 
+#opt = webdriver.FirefoxOptions()
+#opt.add_argument("headless")
+#opt.add_argument("--ignore-certificate-errors")
+#opt.add_argument("--test-type")
+#opt.add_argument("--disable-gpu")
+#
 fp = webdriver.FirefoxProfile(os.environ.get("firefox-profile"))
 driver = webdriver.Firefox(fp)
 driver.get("https://outlook.office.com/")
@@ -72,4 +78,4 @@ for request in driver.requests[::-1]:
                 os.system(f"dotenv set {header} \'{request.headers[header]}\'")
         break
 
-time.sleep(50)
+driver.close()
