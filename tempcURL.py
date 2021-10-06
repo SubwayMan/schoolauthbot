@@ -6,8 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-url = "https://outlook.office.com/searcheapi/v1/suggestions?scenario=owa.react.compose&setflight=CSRClientEnabled&n=95&cri={0}&cv={1}".format(
-        os.environ.get("cri"), os.environ.get("cv"))
+url = os.environ.get("url")
 
 class BadInputError():
     """Custom error."""

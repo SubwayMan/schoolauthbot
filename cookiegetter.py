@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.keys import Keys
 from dotenv import load_dotenv
+import json
 import re
 import os
 import time
@@ -39,18 +40,18 @@ confirmbut = WebDriverWait(driver, 20).until(
     EC.element_to_be_clickable((By.ID, "idSIButton9")))
 confirmbut.click()
 
-sendbut = WebDriverWait(driver, 20).until(
+sendbut = WebDriverWait(driver, 30).until(
     EC.element_to_be_clickable((By.ID, "id__9")))
 time.sleep(1.5)
 sendbut.click()
 
-field = WebDriverWait(driver, 20).until(
+field = WebDriverWait(driver, 30).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, "input.ms-BasePicker-input")))
 
 field.send_keys("100")
 
 try:
-    dirsearch = WebDriverWait(driver, 20).until(
+    dirsearch = WebDriverWait(driver, 30).until(
         EC.element_to_be_clickable((By.ID, "sug-footer-item1")))
     dirsearch.click()
 except:
@@ -59,13 +60,10 @@ except:
 for request in driver.requests[::-1]:
     if "suggestions?scenario=owa.react.compose" in request.url:
 
-        cvid = request.body.decode("utf-8")["Cvid"]
+        cvid = json.loads(request.body.decode("utf-8"))["Cvid"]
+        print(cvid)
         os.system(f"dotenv set Cvid \'{cvid}\'")
-        args = re.split("[&=]", request.url)
-        cri = args[args.index("cri")+1]
-        cv = args[args.index("cv")+1]
-        os.system(f"dotenv set cri \'{cri}\'")
-        os.system(f"dotenv set cv \'{cv}\'")
+        os.system(f"dotenv set url \'{request.url}\'")
 
         for header in request.headers:
             print(header)
@@ -74,4 +72,4 @@ for request in driver.requests[::-1]:
                 os.system(f"dotenv set {header} \'{request.headers[header]}\'")
         break
 
-time.sleep(20)
+time.sleep(50)
