@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-url = "https://outlook.office.com/search/api/v1/suggestions?scenario=owa.react.compose&setflight=CSRClientEnabled&n=95&cri=0f9e6e2f-435b-d7c2-9527-dec4412c49e3&cv=mkpDCKnmGlOOQ7XkWwY2Vs.95"
+url = os.environ.get("url")
 
 class BadInputError():
     """Custom error."""
@@ -43,13 +43,14 @@ def send_req(txt):
         return 1
 
     data = '{"AppName":"OWA","Scenario":{"Name":"owa.react.compose"},"Cvid":"' + \
-        os.environ.get("cvid") + '","EntityRequests":[{"Query":{"QueryString":"' + \
+        os.environ.get("Cvid") + '","EntityRequests":[{"Query":{"QueryString":"' + \
         txt + \
         '"},"EntityType":"People","Provenances":["Mailbox","Directory"],"Size":"20","Fields":["Id","ADObjectId","DisplayName","EmailAddresses","PeopleSubtype","PeopleType","PDLItemId","PersonaId","ImAddress","JobTitle","FeatureData","PersonId"]}]}'
 
     resp = requests.post(url, headers=headers, data=data)
     print(resp.text)
     respjson = json.loads(resp.text)
+    print(respjson)
     if not respjson["Groups"] or len(respjson["Groups"][0]["Suggestions"]) != 1:
         return 1
     

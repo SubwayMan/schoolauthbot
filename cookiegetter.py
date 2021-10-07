@@ -6,6 +6,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.keys import Keys
 from dotenv import load_dotenv
+import json
+import re
 import os
 import time
 
@@ -14,6 +16,12 @@ load_dotenv()
 f = open("geckodriver.log", "w")
 f.write("")
 f.close()
+
+opt = webdriver.FirefoxOptions()
+opt.add_argument("headless")
+opt.add_argument("--ignore-certificate-errors")
+opt.add_argument("--test-type")
+opt.add_argument("--disable-gpu")
 
 fp = webdriver.FirefoxProfile(os.environ.get("firefox-profile"))
 driver = webdriver.Firefox(fp)
@@ -38,18 +46,18 @@ confirmbut = WebDriverWait(driver, 20).until(
     EC.element_to_be_clickable((By.ID, "idSIButton9")))
 confirmbut.click()
 
-sendbut = WebDriverWait(driver, 20).until(
+sendbut = WebDriverWait(driver, 30).until(
     EC.element_to_be_clickable((By.ID, "id__9")))
-time.sleep(1.5)
+time.sleep(3.5)
 sendbut.click()
 
-field = WebDriverWait(driver, 20).until(
+field = WebDriverWait(driver, 30).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, "input.ms-BasePicker-input")))
 
 field.send_keys("100")
 
 try:
-    dirsearch = WebDriverWait(driver, 20).until(
+    dirsearch = WebDriverWait(driver, 30).until(
         EC.element_to_be_clickable((By.ID, "sug-footer-item1")))
     dirsearch.click()
 except:
@@ -57,17 +65,20 @@ except:
 
 for request in driver.requests[::-1]:
     if "suggestions?scenario=owa.react.compose" in request.url:
-        print(request.querystring)
-        requestbody = request.body.decode("utf-8")["Cvid"]
-        os.system(f"dotenv set cvid {requestbody}")
+
+        cvid = json.loads(request.body.decode("utf-8"))["Cvid"]
+        print(cvid)
+        os.system(f"dotenv set Cvid {cvid}")
+        os.system(f"dotenv set url \"{request.url}\"")
+
         for header in request.headers:
             print(header)
 
             if header in ["client-request-id", "authorization", "x-owa-canary", "x-anchormailbox", "client-session-id", "x-owa-sessionid", "ms-cv"]:
                 if header == "authorization":
-                    os.system(f'dotenv set {header} \'{request.headers[header]}\'')
+                    os.system(f'dotenv set {header} "Bearer  {request.headers[header].split()[1]}"')
                 else:
-                    os.system(f"dotenv set {header} '{request.headers[header]}'")
+                    os.system(f"dotenv set {header} \"{request.headers[header]}\"")
         break
 
-time.sleep(20)
+driver.close()
