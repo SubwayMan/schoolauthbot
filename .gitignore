@@ -3,4 +3,5 @@ geckodriver.log
 parse.json
 *.Selenium
 *.selenium
+*.pem
 __pycache__/
