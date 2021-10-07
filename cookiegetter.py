@@ -18,13 +18,13 @@ f.write("")
 f.close()
 
 opt = webdriver.FirefoxOptions()
-opt.add_argument("headless")
+opt.add_argument("--headless")
 opt.add_argument("--ignore-certificate-errors")
 opt.add_argument("--test-type")
 opt.add_argument("--disable-gpu")
 
 fp = webdriver.FirefoxProfile(os.environ.get("firefox-profile"))
-driver = webdriver.Firefox(fp)
+driver = webdriver.Firefox(fp, options=opt)
 driver.get("https://outlook.office.com/")
 
 def get_element(by_type, flag):
