@@ -48,12 +48,13 @@ def send_req(txt):
         '"},"EntityType":"People","Provenances":["Mailbox","Directory"],"Size":"20","Fields":["Id","ADObjectId","DisplayName","EmailAddresses","PeopleSubtype","PeopleType","PDLItemId","PersonaId","ImAddress","JobTitle","FeatureData","PersonId"]}]}'
 
     resp = requests.post(url, headers=headers, data=data)
-    print(resp.text)
-    respjson = json.loads(resp.text)
-    print(respjson)
-    if not respjson["Groups"] or len(respjson["Groups"][0]["Suggestions"]) != 1:
-        return 1
-    
-    return respjson["Groups"][0]["Suggestions"][0]
+    try:
+        respjson = json.loads(resp.text)
+        if not respjson["Groups"] or len(respjson["Groups"][0]["Suggestions"]) != 1:
+            return 1
+        
+        return respjson["Groups"][0]["Suggestions"][0]
+    except:
+        return 0
 
 

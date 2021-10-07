@@ -67,12 +67,10 @@ for request in driver.requests[::-1]:
     if "suggestions?scenario=owa.react.compose" in request.url:
 
         cvid = json.loads(request.body.decode("utf-8"))["Cvid"]
-        print(cvid)
         os.system(f"dotenv set Cvid {cvid}")
         os.system(f"dotenv set url \"{request.url}\"")
 
         for header in request.headers:
-            print(header)
 
             if header in ["client-request-id", "authorization", "x-owa-canary", "x-anchormailbox", "client-session-id", "x-owa-sessionid", "ms-cv"]:
                 if header == "authorization":
