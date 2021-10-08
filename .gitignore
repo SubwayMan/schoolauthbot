@@ -1,7 +1,6 @@
 .env
 geckodriver.log
 parse.json
-*.selenium
 *.pem
 __pycache__/
 *.ppk
