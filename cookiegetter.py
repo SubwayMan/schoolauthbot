@@ -13,18 +13,16 @@ import time
 
 load_dotenv()
 
-f = open("geckodriver.log", "w")
-f.write("")
-f.close()
-
-opt = webdriver.FirefoxOptions()
+opt = webdriver.ChromeOptions()
 opt.add_argument("--headless")
 opt.add_argument("--ignore-certificate-errors")
 opt.add_argument("--test-type")
 opt.add_argument("--disable-gpu")
 
-fp = webdriver.FirefoxProfile(os.environ.get("firefox-profile"))
-driver = webdriver.Firefox(fp, options=opt)
+PATH = "usr/bin/chromedriver"
+PATH = "C:\Program Files (x86)\chromedriver.exe" #windows 10
+
+driver = webdriver.Chrome(PATH, options=opt)
 driver.get("https://outlook.office.com/")
 
 def get_element(by_type, flag):
@@ -47,7 +45,7 @@ confirmbut = WebDriverWait(driver, 20).until(
 confirmbut.click()
 
 sendbut = WebDriverWait(driver, 30).until(
-    EC.element_to_be_clickable((By.ID, "id__9")))
+    EC.element_to_be_clickable((By.ID, "id__7")))
 time.sleep(3.5)
 sendbut.click()
 
