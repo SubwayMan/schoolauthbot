@@ -31,7 +31,7 @@ async def verify(ctx, uid):
 
 @ecv.command(pass_context=True, name="aoclb")
 async def advent_leaderboard(ctx, event="2021"):
-    if not 2015<=int(event)<=2021:
+    if not event.isnumeric() or not 2015<=int(event)<=2021:
         event = "2021"
 
     dat = get_advent_data(event)
