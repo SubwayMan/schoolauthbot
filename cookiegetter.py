@@ -14,7 +14,7 @@ import time
 load_dotenv()
 
 opt = webdriver.ChromeOptions()
-opt.add_argument("--headless")
+#opt.add_argument("--headless")
 opt.add_argument("--ignore-certificate-errors")
 opt.add_argument("--test-type")
 opt.add_argument("--disable-gpu")
@@ -45,7 +45,9 @@ confirmbut = WebDriverWait(driver, 20).until(
 confirmbut.click()
 
 sendbut = WebDriverWait(driver, 30).until(
-    EC.element_to_be_clickable((By.ID, "id__7")))
+    EC.element_to_be_clickable((By.CSS_SELECTOR, 'span[data-automationid=\'splitbuttonprimary\']'))) #data-automationid="splitbuttonprimary"
+
+print("button found!")
 time.sleep(3.5)
 sendbut.click()
 
