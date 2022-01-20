@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import discord
 from dotenv import load_dotenv
 from discord.utils import get
@@ -41,14 +42,13 @@ async def advent_leaderboard(ctx, event="2021"):
     usr_data = dat["members"]
     url = "https://adventofcode.com/" + dat["event"]
 
-    embd = discord.Embed(title=evn, url=url, description="Hamber Coding Club's leaderboard for Advent of Code {}".format(dat["event"]))
+    embd = discord.Embed(title=evn, url=url, description="Hamber Coding Club's leaderboard for Advent of Code {},\n displaying top 20 participants.".format(dat["event"]))
     whitespace = [12, 9, 9, 9]
     headers = ["Name", "Stars", "Local", "Global"]
     body = "```|" + "|".join(headers[k].ljust(whitespace[k]) for k in range(len(headers))) + "|"
     fields = ["name", "stars", "local_score", "global_score"]
 
-    for k in sorted(usr_data, key=lambda a: usr_data[a]["local_score"],
-                    reverse=True):
+    for k in sorted(usr_data, key=lambda a: (usr_data[a]["local_score"], usr_data[a]["stars"], usr_data[a]["name"]), reverse=True)[:20]:
         row = "\n"
         for elem, wh in zip(fields, whitespace):
             fieldval = str(usr_data[k][elem])[:wh-1].ljust(wh)
@@ -56,8 +56,7 @@ async def advent_leaderboard(ctx, event="2021"):
         row += "|"
         body += row
 
-    body += "```"
-    embd.add_field(name="Leaderboard", value=body)
+    embd.add_field(name="Leaderboard", value=body[:1021]+"```")
     await ctx.send(embed=embd)
 
 
