@@ -5,7 +5,7 @@ answer correct to 1 decimal place.
 
 A[78.4]
 D[Bullseye]
-I[05-RB-1]
+I[05-RBU-1]
 ~
 Beta has twice as many pennies as Alpha. Gamma has three times as
 many pennies as Beta. Between the three of them, they have fewer
@@ -14,15 +14,15 @@ they could have between them?
 
 A[72]
 D[Bullseye]
-I[05-RB-2]
+I[05-RBU-2]
 ~
 It so happens that 7700625 is a perfect square, that is, the square of a
 whole number, and that 7706176 is the next perfect square. What is
 the first perfect square greater than 7706176?
 
-A[12.5]
+A[7711729]
 D[Bullseye]
-I[05-RB-4]
+I[05-RBU-4]
 ~
 In a game, you toss two standard dice, a silver one and a gold one.
 Your score is the number showing on the silver one, plus twice the
@@ -31,7 +31,7 @@ score is 8? Express your answer as a fraction in lowest terms.
 
 A[1/12]
 D[Bullseye]
-I[05-RB-5]
+I[05-RBU-5]
 ~
 There are 5 people in a family, all of different heights. We want to 
 line them up for a picture, with the tallest person in the middle, and
@@ -40,7 +40,7 @@ and then decrease. How many ways are there to do this?
 
 A[6]
 D[Bullseye]
-I[05-RB-6]
+I[05-RBU-6]
 ~
 Xaviera jogs at a steady rate of 5 minutes per kilometre. Yolande 
 jogs at 7 minutes per kilometre. They start at the same time on an
@@ -51,5 +51,5 @@ place.
 
 A[12.5]
 D[Bullseye]
-I[05-RB-3]
-P[05-RB-3.png]
+I[05-RBU-3]
+P[05-RBU-3.png]

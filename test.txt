@@ -1,0 +1,22 @@
+What is the largest number that is less than 100 and has exactly 3 
+whole number factors?
+
+Triangle ABC has a right angle at A. The two legs AB and AC have 
+lengths 9 centimetres and 40 centimetres. What is the length, in cen-
+timetres, of the hypotenuse BC?
+
+Given that 1/2x + 3/2 = 3/4x + 5/4, what is the value of x? 
+
+If a computer is worth a certain amount, it is worth 40% less a year 
+later. Alphonse’s computer is now worth $2000. How many dollars
+will it be worth 3 years from now?
+
+Suppose that a and b are real numbers such that ab =  What is the 
+value of a3b − 6?
+
+The cost of sending a parcel is $4.00 for the first kilogram, and $0.60 
+for each additional kg. A certain parcel weighs a whole number of
+kg, and costs $40.00 to send. How many kg does the parcel weigh?
+
+A rectangular field is 50% longer than it is wide. The perimeter of the 
+field is 300 metres. What is the area of the field, in square metres?
