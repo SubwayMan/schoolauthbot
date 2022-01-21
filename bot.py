@@ -67,16 +67,17 @@ async def advent_leaderboard(ctx, event="2021"):
 async def create_problem(ctx):
     problem_data = random.choice(challengers_questions)
     problem = challengers.Problem(problem_data)
-    await ctx.reply(embed=problem.get_embed(0xebd300))
+    embed, img = problem.get_embed(0xebd300)
+    await ctx.reply(embed=embed, file=img)
 
 
 @ecv.command(pass_context=True, name="answer")
 async def submit_answer(ctx, qid, *, answer):
-    
+
     if not qid.isnumeric():
         await ctx.reply("Invalid problem ID.")
         return
-    
+
     qid = int(qid)
     status, result = challengers.Problem.submit_answer(qid, answer)
     if status != 0:
@@ -84,14 +85,14 @@ async def submit_answer(ctx, qid, *, answer):
     else:
         problem = challengers.Problem.loaded_problems[qid]
         if result:
-            embed = problem.get_embed(0x2bff00)
+            embed, img = problem.get_embed(0x2bff00)
             embed.add_field(name="Answer", value="`" + problem.answer + "`")
-            await ctx.reply("Correct!", embed=embed)
+            await ctx.reply("Correct!", embed=embed, file=img)
 
             challengers.Problem.unload_question(qid)
         else:
-            embed = problem.get_embed(0xbd1c37)
-            await ctx.reply("Incorrect!", embed=embed)
+            embed, img = problem.get_embed(0xbd1c37)
+            await ctx.reply("Incorrect!", embed=embed, file=img)
 
 
 ecv.run(os.environ.get("bot-token"))

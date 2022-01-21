@@ -4,7 +4,8 @@ was the average mark among the students who didn’t fail? Give the
 answer correct to 1 decimal place.
 
 A[78.4]
-D[Blitz]
+D[Bullseye]
+I[05-RB-1]
 ~
 Beta has twice as many pennies as Alpha. Gamma has three times as
 many pennies as Beta. Between the three of them, they have fewer
@@ -12,11 +13,43 @@ than 80 pennies. What is the largest possible number of pennies that
 they could have between them?
 
 A[72]
-D[Blitz]
+D[Bullseye]
+I[05-RB-2]
 ~
 It so happens that 7700625 is a perfect square, that is, the square of a
 whole number, and that 7706176 is the next perfect square. What is
 the first perfect square greater than 7706176?
 
 A[12.5]
-D[Blitz]
+D[Bullseye]
+I[05-RB-4]
+~
+In a game, you toss two standard dice, a silver one and a gold one.
+Your score is the number showing on the silver one, plus twice the
+number showing on the gold one. What is the probability that your
+score is 8? Express your answer as a fraction in lowest terms.
+
+A[1/12]
+D[Bullseye]
+I[05-RB-5]
+~
+There are 5 people in a family, all of different heights. We want to 
+line them up for a picture, with the tallest person in the middle, and
+so that as we go from left to right, the heights of the people increase
+and then decrease. How many ways are there to do this?
+
+A[6]
+D[Bullseye]
+I[05-RB-6]
+~
+Xaviera jogs at a steady rate of 5 minutes per kilometre. Yolande 
+jogs at 7 minutes per kilometre. They start at the same time on an
+out and back run that consists of 15 km due east followed by 15 km
+due west. How many kilometres from the finish line is Xaviera when
+they pass next to each other? Give the answer correct to 1 decimal
+place.
+
+A[12.5]
+D[Bullseye]
+I[05-RB-3]
+P[05-RB-3.png]

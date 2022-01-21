@@ -1,4 +1,5 @@
 import re
+import os
 import discord
 import random
 
@@ -29,6 +30,10 @@ class Problem():
         else:
             self.description = self.description[0]
 
+        self.diagram = re.findall(r"P\[(.+)\]", txt)
+        if self.diagram:
+            self.diagram = self.diagram[0]
+
         self.answer = self.answer[0]
         self.hash = random.randrange(int(1E3), int(1E4))
         while self.hash in Problem.loaded_problems:
@@ -39,8 +44,12 @@ class Problem():
     def get_embed(self, color=None) -> discord.Embed:
         """Sends a discord-sendable embed representation of problem."""
         embed = discord.Embed(title="Math Challengers Practice", description="Question ID: {}".format(self.hash), color=color)
+        img = None
+        if self.diagram:
+            img = discord.File(os.path.join("challengers-diagrams", self.diagram))
+            embed.set_image(url="attachment://" + self.diagram)
         embed.add_field(name=self.description, value=self.body)
-        return embed
+        return (embed, img)
 
     def check_answer(self, answer) -> bool:
         """Verifies answer."""
