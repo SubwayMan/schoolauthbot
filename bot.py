@@ -113,4 +113,18 @@ async def active_problems(ctx):
     await ctx.reply(embed=embed)
 
 
+@ecv.command(pass_context=True, name="view")
+async def view_problem(ctx, qid):
+    if not qid.isnumeric():
+        await ctx.reply("Invalid problem ID.")
+        return
+    qid = int(qid)
+    if qid in challengers.Problem.loaded_problems:
+        problem = challengers.Problem.loaded_problems[qid]
+        embed, img = problem.get_embed(0xebd300)
+        await ctx.reply(embed=embed, file=img)
+    else:
+        await ctx.reply("Invalid problem ID.")
+
+
 ecv.run(os.environ.get("bot-token"))
