@@ -95,4 +95,22 @@ async def submit_answer(ctx, qid, *, answer):
             await ctx.reply("Incorrect!", embed=embed, file=img)
 
 
+@ecv.command(pass_context=True, name="active")
+async def active_problems(ctx):
+    problem_ids = challengers.Problem.loaded_problems.keys()
+    contents = "\n".join(map(str, problem_ids))[:1021]
+    if contents == "":
+        contents = "Nothing here..."
+
+    body = "```\n{}\n```".format(contents)
+    description = """Here is a list of all currently open problem IDs. 
+    Use &view to see the problem statement. Note that a problem is closed
+    after it has been answered correctly."""
+    title = "Open Problems"
+    embed = discord.Embed(title=title, description=description)
+    embed.add_field(name="ID", value=body)
+    embed.color = 0x9ec90e
+    await ctx.reply(embed=embed)
+
+
 ecv.run(os.environ.get("bot-token"))
