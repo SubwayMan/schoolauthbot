@@ -1,4 +1,4 @@
- A class of 30 students took a test, and the class average was 70. The 1.
+ A class of 30 students took a test, and the class average was 70. The
 five students who failed had marks of 20, 25, 25, 30, and 40. What
 was the average mark among the students who didn’t fail? Give the
 answer correct to 1 decimal place.
@@ -6,7 +6,7 @@ answer correct to 1 decimal place.
 A[78.4]
 D[Blitz]
 ~
-Beta has twice as many pennies as Alpha. Gamma has three times as 2.
+Beta has twice as many pennies as Alpha. Gamma has three times as
 many pennies as Beta. Between the three of them, they have fewer
 than 80 pennies. What is the largest possible number of pennies that
 they could have between them?
@@ -14,7 +14,7 @@ they could have between them?
 A[72]
 D[Blitz]
 ~
-It so happens that 7700625 is a perfect square, that is, the square of a 4.
+It so happens that 7700625 is a perfect square, that is, the square of a
 whole number, and that 7706176 is the next perfect square. What is
 the first perfect square greater than 7706176?
 

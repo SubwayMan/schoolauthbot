@@ -30,18 +30,21 @@ class Problem():
             self.description = self.description[0]
 
         self.answer = self.answer[0]
-        self.hash = random.randrange(int(1E7), int(1E8))
+        self.hash = random.randrange(int(1E3), int(1E4))
+        while self.hash in Problem.loaded_problems:
+            self.hash = random.randrange(int(1E5), int(1E6))
+
         Problem.loaded_problems[self.hash] = self
 
-    def get_embed(self) -> discord.Embed:
+    def get_embed(self, color=None) -> discord.Embed:
         """Sends a discord-sendable embed representation of problem."""
-        embed = discord.Embed(title="Math Challengers Practice", description="Question ID: {}".format(self.hash))
+        embed = discord.Embed(title="Math Challengers Practice", description="Question ID: {}".format(self.hash), color=color)
         embed.add_field(name=self.description, value=self.body)
         return embed
 
     def check_answer(self, answer) -> bool:
         """Verifies answer."""
-        if answer.strip().replace() == self.answer:
+        if answer.strip() == self.answer:
             return True
         return False
 
@@ -53,13 +56,17 @@ class Problem():
             problem = Problem.loaded_problems[problem_id]
             if problem.check_answer(answer):
                 return (0, True)
-
             return (0, False)
-
         return (-1, False)
+
+    def unload_question(problem_id):
+        """Removes a problem id from loaded problems."""
+
+        if problem_id in Problem.loaded_problems:
+            Problem.loaded_problems.pop(problem_id)
 
 
 def load_questions():
-    with open("questions.txt", "r") as all_data:
+    with open("questions.txt", "r", encoding="utf-8") as all_data:
         questions = all_data.read().split("~")
     return questions
