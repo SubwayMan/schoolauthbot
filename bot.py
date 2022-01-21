@@ -6,11 +6,14 @@ from discord.ext import commands
 import os
 import time
 import tempcURL
+import challengers
+import random
 from adventdata import get_advent_data
 
 load_dotenv()
 
 ecv = commands.Bot(command_prefix="&")
+challengers_questions = challengers.load_questions()
 
 
 @ecv.command(name="test")
@@ -18,7 +21,7 @@ async def sayhi(ctx):
     await ctx.channel.send("test")
 
 
-@ecv.command(name="verify", pass_context=True)
+@ecv.command(pass_context=True, name="verify")
 async def verify(ctx, uid):
     student = ctx.message.author
     val = tempcURL.send_req(uid)
@@ -58,6 +61,18 @@ async def advent_leaderboard(ctx, event="2021"):
 
     embd.add_field(name="Leaderboard", value=body[:1021]+"```")
     await ctx.send(embed=embd)
+
+
+@ecv.command(pass_context=True, name="math")
+async def create_problem(ctx):
+    problem_data = random.choice(challengers_questions)
+    problem = challengers.Problem(problem_data)
+    await ctx.send(embed=problem.get_embed())
+
+
+@ecv.command(pass_context=True, name="answer")
+async def submit_answer(ctx, qid, answer):
+    pass
 
 
 ecv.run(os.environ.get("bot-token"))
