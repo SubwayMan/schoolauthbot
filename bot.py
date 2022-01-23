@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 import discord
 from dotenv import load_dotenv
 from discord.utils import get

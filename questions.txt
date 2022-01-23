@@ -56,6 +56,7 @@ P[05-RBU-3.png]
 ~
 What is the largest number that is less than 100 and has exactly 3 
 whole number factors?
+
 A[49]
 D[Blitz]
 I[05-RBL-1]
@@ -63,11 +64,13 @@ I[05-RBL-1]
 Triangle ABC has a right angle at A. The two legs AB and AC have 
 lengths 9 centimetres and 40 centimetres. What is the length, in cen-
 timetres, of the hypotenuse BC?
+
 A[41]
 D[Blitz]
 I[05-RBL-2]
 ~
 Given that 1/2x + 3/2 = 3/4x + 5/4, what is the value of x? 
+
 A[1]
 D[Blitz]
 I[05-RBL-3]
@@ -75,12 +78,14 @@ I[05-RBL-3]
 If a computer is worth a certain amount, it is worth 40% less a year 
 later. Alphonse’s computer is now worth $2000. How many dollars
 will it be worth 3 years from now?
+
 A[432]
 D[Blitz]
 I[05-RBL-4]
 ~
-Suppose that a and b are real numbers such that ab =  What is the 
-value of a3b − 6?
+Suppose that a and b are real numbers such that a^b = 5. What is the 
+value of a^(3b) − 6?
+
 A[119]
 D[Blitz]
 I[05-RBL-5]
@@ -88,6 +93,7 @@ I[05-RBL-5]
 The cost of sending a parcel is $4.00 for the first kilogram, and $0.60 
 for each additional kg. A certain parcel weighs a whole number of
 kg, and costs $40.00 to send. How many kg does the parcel weigh?
+
 A[61]
 D[Blitz]
 I[05-RBL-6]
@@ -98,3 +104,95 @@ field is 300 metres. What is the area of the field, in square metres?
 A[5400]
 D[Blitz]
 I[05-RBL-7]
+~
+When we increase 200 by a certain percent, we get the same result as when we decrease 300 by the same percent. What is that percent?
+
+A[20]
+D[Bullseye]
+I[06-RBU-1]
+~
+Alva has a total of $50 in 1-dollar coins and 2-dollar coins. If the 1-dollar coins were 2-dollar coins and the 2-dollar coins were 1-dollar coins, Alva would have $70. What is the total number of coins that Alva has?
+
+A[40]
+D[Bullseye]
+I[06-RBU-2]
+~
+A's house and B's house are 12 miles apart. At 12:30, A started walking toward B's house. Somewhat later, B started walking toward A's house. Given that A walks at 4 miles per hour, and B at 5 miles per hour, and that they met halfway between their two houses, at what time did B leave her house?
+
+A[12:48]
+D[Bullseye]
+I[06-RBU-3]
+~
+Albert gave Beth as many pennies as Beth had. Then Beth gave Albert as many pennies as Albert still had. Finally, Albert gave Beth as many pennies as Beth still had. After these three transactions, Albert had 0 pennies, and Beth had 96. How many pennies did Beth start out with?
+
+A[36]
+D[Bullseye]
+I[06-RBU-4]
+~
+Aleph, Beth, and Gimel compete every day to see who can get to school first. Aleph wins with probability 1/2, Beth wins with probability 1/3, and Gimel wins with probability 1/6.
+Today Gimel did not win. What is the probability that Beth won?
+
+A[2/5]
+D[Bullseye]
+I[06-RBU-5]
+~
+How many integers n are there such that
+2/101 < 1/n < 4/101?
+
+A[25]
+D[Bullseye]
+I[06-RBU-6]
+~
+A standard deck of 52 cards is shuffled. What is the probability that the top card is a spade and the next card is a queen?
+
+A[1/52]
+D[Bullseye]
+I[06-RBU-7]
+~
+An integer n is called square-free if n has no perfect square factor greater than 1. How many square-free positive integers divide 6!? Note that 1 is square-free?
+
+A[8]
+D[Bullseye]
+I[06-RBU-8]
+~
+What is the smallest positive integer which is not a factor of 25! ?
+
+A[29]
+D[Bullseye]
+I[07-RBU-1]
+~
+A regular hexagon and a square share a common side, as shown in the picture below. What is the measure of <ABC, in degrees?
+
+A[15]
+D[Bullseye]
+I[06-RBU-9]
+P[06-RBU-9.png]
+~
+Alan made a box with no top by cutting out a 9 cm by 9 cm square from each corner of a square piece of cardboard, folding the flaps up along the dashed lines (see the figure below), and taping.
+Given that the volume of the box is 2500 cm^2, what is the length, in cm, of a side of the cardboard square Alan started out with? Express your answer as a common fraction.
+
+A[104/3]
+D[Bullseye]
+I[06-RBU-10]
+P[06-RBU-10.png]
+~
+In the diagram below (which is not drawn to scale) each point on the inner circle is distance 1 cm away from the nearest point on the outer circle. Given that the shaded region has area 111 pi cm^2, what is the circumference, in cm of the inner circle? Express your answer in terms of pi. (use the letters pi, eg. 42 pi)
+
+A[110 pi]
+D[Bullseye]
+I[06-RBU-11]
+P[06-RBU-11.png]
+~
+In the following diagram, ABCD is a rectangle, with AB = 4 and BC = 2, E is the midpoint of line segment AD, and CF is perpendicular to BE. What is the number of square units in the area of the quadrilateral CDEF? Express your answer as fraction in lowest terms.
+
+A[94/17]
+D[Bullseye]
+I[06-RBU-12]
+P[06-RBU-12.png]
+~
+Richie has one penny, two nickels, and three dimes. How many different amounts of money can he make using one or more of these six coins?
+
+A[17]
+D[Bullseye]
+I[07-RBU-2]
+
